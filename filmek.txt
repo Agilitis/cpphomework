@@ -1,0 +1,6 @@
+action Dragan_add_a_zhpontjaid 2000 7200 8
+fantasy prog2_otos 1050 7200 10
+action 2Dragan_add_a_zhpontjaid 2000 7200 8
+action 3Dragan_add_a_zhpontjaid 2000 7200 8
+action 4Dragan_add_a_zhpontjaid 2000 7200 8
+action 5Dragan_add_a_zhpontjaid 2000 7200 8
