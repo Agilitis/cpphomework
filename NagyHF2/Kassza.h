@@ -1,17 +1,20 @@
 #pragma once
+#include "DataProvider.h"
 #include "Film.h"
-
 class Kassza
 {
-	Film **filmek;
-	int filmCounter;
-	Film **kolcsonzott;
-	int kolcsonzottCounter;
+	DataProvider _dataProvider;
 public:
 	Kassza();
 	virtual ~Kassza();
 	void listMovies();
+	void listMoivesByTitle();
+	void listMoviesByGenre();
+	void listMoviesByYear();
 	void getRentPrice(int id);
-	void addMovie(Film* film);
+	bool rentMovie(int id);
+	bool isMovieAvailable(int id);
+	
+	
 };
 

@@ -4,7 +4,7 @@ class DokumentumFilm :
 	public Film
 {
 public:
-	DokumentumFilm(String title, int price, int length, int rating);
+	DokumentumFilm(String title, int price, int length, int rating, int year, String genre, int id);
 
 	DokumentumFilm();
 	~DokumentumFilm();

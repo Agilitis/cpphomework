@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AkcioFilm">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>AkcioFilm.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataProvider">
+    <Position X="8.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgACAAAAAAAACACBAAAEAACAACAAAAAAEQCA=</HashCode>
+      <FileName>DataProvider.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DokumentumFilm">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>DokumentumFilm.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FantasyFilm">
+    <Position X="2.75" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAA=</HashCode>
+      <FileName>FantasyFilm.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Film">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAEAAAAwAAAQEIAAEAAAAgCAQAABAAAAAAAAAQAAgA=</HashCode>
+      <FileName>Film.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kassza">
+    <Position X="12.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAgEAAgAAAAAAAAAIABEAAAQAQAAgAAAAAA=</HashCode>
+      <FileName>Kassza.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="String">
+    <Position X="10.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAEQICIAQAAAAEAAAAAAAAgAAAggAA=</HashCode>
+      <FileName>String.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

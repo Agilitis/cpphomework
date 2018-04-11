@@ -18,58 +18,69 @@ void printMenu() {
 
 
 }
+void printListMenu() {
+	std::cout << "1. Filmek mufaj szerint" << std::endl;
+	std::cout << "2. Filmek nev szerint" << std::endl;
+	std::cout << "3. Filmek datum szerint" << std::endl;
 
-void handleMenuInput(int menuPicker, Kassza kassza) {
+
+}
+
+void handleListMenuInput(int menuPicker, Kassza& kassza) {
 	switch (menuPicker) {
 	case 1:
-		kassza.listMovies();
+		kassza.listMoviesByGenre();
 		break;
 	case 2:
+		kassza.listMoivesByTitle();
+		break;
+	case 3:
+		kassza.listMoviesByYear();
+		break;
+	}
+}
+
+void handleMenuInput(int menuPicker, Kassza& kassza) {
+	switch (menuPicker) {
+	case 1:
+		printListMenu();
+		switch (menuPicker) {
+		case 1:
+			std::cin >> menuPicker;
+			handleListMenuInput(menuPicker, kassza);
+		}
+		break;
+	case 2:
+		std::cout << "Adja meg a film azonositojat: ";
+		int movieId;
+		std::cin >> movieId;
+		if (kassza.rentMovie(movieId)) {
+			std::cout << "sikeres kolcsonzes!" << std::endl;
+		}
 		break;
 
 	case 3:
 		break;
 
 	case 4:
+		std::cout << "Adja meg a film azonositojat: ";
+		std::cin >> movieId;
+		if (kassza.isMovieAvailable(movieId)) {
+			std::cout << "Elerheto!" << std::endl;
+		}
+		else {
+			std::cout << "Nem erheto el!" << std::endl;
+		}
 		break;
 
 	}
 };
 
-Kassza initKassza()
-{
-	Kassza kassza;
-	std::fstream filmFile("filmek.txt");
-	//menetrend betoltese a "filmek.txt" fajlbol
-	if (filmFile.is_open()) {
-		String genre("");
-		String title("");
-		int price;
-		int length;
-		int rating;
-		while (!filmFile.eof()) {
-			filmFile >> genre >> title >> price >> length >> rating;
-			if (strcmp(genre.c_str(), "action") == 0) {
-				kassza.addMovie(new AkcioFilm(title, price, length, rating));
-			}
-			else if (strcmp(genre.c_str(), "fantasy") == 0) {
-				kassza.addMovie(new FantasyFilm(title, price, length, rating));
-			}
-			else if (strcmp(genre.c_str(), "document") == 0) {
-				kassza.addMovie(new DokumentumFilm(title, price, length, rating));
-			}
-		}
-	}
-	else std::cout << "Couldn't open filmek.txt\n";
-	filmFile.close();
-	return kassza;
-}
-
 
 int main() {
 
 	printMenu();
-	Kassza kassza = initKassza();
+	Kassza kassza;
 	int menuPicker;
 	while (true) {
 		std::cin >> menuPicker;
