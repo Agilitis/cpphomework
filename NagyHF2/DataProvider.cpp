@@ -47,7 +47,7 @@ Film** DataProvider::getMovies()
 	}
 	return filmek;
 
-		
+
 }
 
 void DataProvider::addMovie(Film * film)
@@ -60,52 +60,54 @@ void DataProvider::addMovie(Film * film)
 	else {
 		filmCounter++;
 		Film** tmp = new Film*[filmCounter];
-		for (int i = 0; i < filmCounter -1 ; i++) {
+		for (int i = 0; i < filmCounter - 1; i++) {
 			tmp[i] = filmek[i];
 		}
-		tmp[filmCounter -1 ] = film;
+		tmp[filmCounter - 1] = film;
 		delete[] filmek;
 		filmek = tmp;
 	}
 
 }
 
-int* DataProvider::getKolcsonzott()
+User** DataProvider::getKolcsonzott()
 {
 	if (kolcsonzott == NULL) {
 		std::fstream filmFile("kolcsonzott.txt");
 		if (filmFile.is_open()) {
 			int id;
+			String nev;
+			int date;
 			while (!filmFile.eof()) {
-				filmFile >> id;
-				addRentedMovie(id);
+				filmFile >> id >> nev >> date;
+				addRentedMovie(new User(id, date, nev));
 			}
 		}
 		else std::cout << "Couldn't open kolcsonzott.txt\n";
 		filmFile.close();
-		
+
 	}
-	
+
 	return kolcsonzott;
 }
 
-void DataProvider::addRentedMovie(int id)
+void DataProvider::addRentedMovie(User* user)
 {
 
 	if (kolcsonzottCounter == 0) {
 		kolcsonzottCounter++;
-		kolcsonzott = new int[kolcsonzottCounter];
-		kolcsonzott[0] = id;
+		kolcsonzott = new User*[kolcsonzottCounter];
+		kolcsonzott[0] = user;
 	}
 	else {
 		kolcsonzottCounter++;
-		int* tmp = new int[kolcsonzottCounter];
+		User** tmp = new User*[kolcsonzottCounter];
 
-		for (int i = 0; i < kolcsonzottCounter -1 ; i++) {
+		for (int i = 0; i < kolcsonzottCounter - 1; i++) {
 			tmp[i] = kolcsonzott[i];
 		}
 
-		tmp[kolcsonzottCounter - 1] = id;
+		tmp[kolcsonzottCounter - 1] = user;
 		delete[] kolcsonzott;
 		kolcsonzott = tmp;
 
@@ -114,7 +116,7 @@ void DataProvider::addRentedMovie(int id)
 	std::fstream filmfile("kolcsonzott.txt");
 	if (filmfile.is_open()) {
 		for (int i = 0; i < kolcsonzottCounter; i++) {
-			filmfile << kolcsonzott[i] << std::endl;
+			filmfile << kolcsonzott[i]->getFilmId() << " " << kolcsonzott[i]->getNev() << " " << kolcsonzott[i]->getDate() << std::endl;
 		}
 	}
 	else std::cout << "couldn't open kolcsonzott.txt\n";

@@ -104,24 +104,24 @@ void Kassza::getRentPrice(int id)
 
 
 
-bool Kassza::rentMovie(int id)
+bool Kassza::rentMovie(int id, String nev, int date)
 {
 
 	if (isMovieAvailable(id)) 
 	{
-		_dataProvider.addRentedMovie(id);
+		_dataProvider.addRentedMovie(new User(id, date, nev));
 		return true;
 	}
-	return false;
+		return false;
 }
 
 bool Kassza::isMovieAvailable(int id)
 {
 
-	int* kolcsonzott = _dataProvider.getKolcsonzott();
+	User** kolcsonzott = _dataProvider.getKolcsonzott();
 	int kolcsonzottCounter = _dataProvider.getKolcsonzottCounter();
 	for (int i = 0; i < kolcsonzottCounter; i++) {
-		if (kolcsonzott[i] == id) {
+		if (kolcsonzott[i]->getFilmId() == id) {
 			return false;
 		}
 	}

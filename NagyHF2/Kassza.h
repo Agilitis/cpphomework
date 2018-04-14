@@ -12,7 +12,7 @@ public:
 	void listMoviesByGenre();
 	void listMoviesByYear();
 	void getRentPrice(int id);
-	bool rentMovie(int id);
+	bool rentMovie(int id, String nev, int date);
 	bool isMovieAvailable(int id);
 	
 	

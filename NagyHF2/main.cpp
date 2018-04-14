@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include <stdio.h>
+#include <ctime>
 #include <fstream>
 #include "Kassza.h"
 #include "String.h"
@@ -41,6 +42,10 @@ void handleListMenuInput(int menuPicker, Kassza& kassza) {
 }
 
 void handleMenuInput(int menuPicker, Kassza& kassza) {
+	String nev;
+	int movieId;
+	std::time_t t = std::time(0);   // get time now
+	std::tm* now = std::localtime(&t);
 	switch (menuPicker) {
 	case 1:
 		printListMenu();
@@ -52,14 +57,21 @@ void handleMenuInput(int menuPicker, Kassza& kassza) {
 		break;
 	case 2:
 		std::cout << "Adja meg a film azonositojat: ";
-		int movieId;
 		std::cin >> movieId;
-		if (kassza.rentMovie(movieId)) {
-			std::cout << "sikeres kolcsonzes!" << std::endl;
+		std::cout << "Adja meg a kolcsonzo kereszt nevet: ";
+		std::cin >> nev;
+		if (kassza.rentMovie(movieId, nev, now->tm_yday*24*60*60+now->tm_hour*60*60+now->tm_min*60+now->tm_sec)) {
+			std::cout << "Sikeres kolcsonzes!" << std::endl;
+		}
+		else {
+			std::cout << "Sikertelen kolcsonzes!" << std::endl;
+
 		}
 		break;
 
 	case 3:
+		std::cout << "Adja meg a film azonositojat: ";
+		std::cin >> movieId;
 		break;
 
 	case 4:
